@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -195,12 +196,12 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center justify-center space-x-8 py-3">
-            <a
-              href="#home"
+            <NavLink
+             to="/"
               className="text-text-white hover:text-orange-600 font-medium transition-colors py-2 border-b-2 border-transparent hover:border-orange-500"
             >
               Home
-            </a>
+            </NavLink>
 
             {/* Products Menu */}
             <div className="relative" ref={dropdownRef}>
@@ -208,7 +209,7 @@ const Header = () => {
                 onClick={handleProductsClick}
                 className="flex items-center gap-2 text-text-white hover:text-orange-600 font-medium py-2 transition-all duration-200 hover:border-b-2 hover:border-orange-500"
               >
-                <span>Our Products</span>
+                <NavLink to="/products">Our Products</NavLink>
                 <svg
                   className={`w-4 h-4 transition-transform duration-200 ${isProductsOpen ? 'rotate-180' : ''}`}
                   fill="none"
@@ -300,19 +301,19 @@ const Header = () => {
               )}
             </div>
 
-            <a
-              href="#about"
+            <NavLink
+              to="/about"
               className="text-text-white hover:text-orange-600 font-medium transition-colors py-2 border-b-2 border-transparent hover:border-orange-500"
             >
               About Us
-            </a>
+            </NavLink>
 
-            <a
-              href="#contact"
+            <NavLink
+              to="/contact"
               className="text-text-white hover:text-orange-600 font-medium transition-colors py-2 border-b-2 border-transparent hover:border-orange-500"
             >
               Contact
-            </a>
+            </NavLink>
           </nav>
 
           {/* Mobile Menu - Improved Structure */}
@@ -360,8 +361,8 @@ const Header = () => {
                     <div className="space-y-1 p-4">
 
                       {/* Home Link */}
-                      <a
-                        href="#home"
+                      <NavLink
+                        to="/"
                         className="flex items-center justify-between p-3 text-gray-700 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition-colors"
                         onClick={() => setIsMenuOpen(false)}
                       >
@@ -369,7 +370,7 @@ const Header = () => {
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                         </svg>
-                      </a>
+                      </NavLink>
 
                       {/* Products Section - Expandable */}
                       <div className="border rounded-lg overflow-hidden">
@@ -377,7 +378,7 @@ const Header = () => {
                           onClick={() => toggleCategory('products')}
                           className="flex items-center justify-between w-full p-3 text-left text-gray-700 hover:text-orange-600 hover:bg-orange-50 transition-colors"
                         >
-                          <span className="font-medium">Products</span>
+                          <NavLink to="/products" className="font-medium">Products</NavLink>
                           <svg
                             className={`w-4 h-4 transform transition-transform duration-300 ${expandedCategory === 'products' ? 'rotate-180' : ''
                               }`}
@@ -441,8 +442,8 @@ const Header = () => {
                       </div>
 
                       {/* About Link */}
-                      <a
-                        href="#about"
+                      <NavLink
+                        to="/about"
                         className="flex items-center justify-between p-3 text-gray-700 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition-colors"
                         onClick={() => setIsMenuOpen(false)}
                       >
@@ -450,11 +451,11 @@ const Header = () => {
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                         </svg>
-                      </a>
+                      </NavLink>
 
                       {/* Contact Link */}
-                      <a
-                        href="#contact"
+                      <NavLink
+                        to="/contact"
                         className="flex items-center justify-between p-3 text-gray-700 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition-colors"
                         onClick={() => setIsMenuOpen(false)}
                       >
@@ -462,7 +463,7 @@ const Header = () => {
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                         </svg>
-                      </a>
+                      </NavLink>
                     </div>
                   </div>
                 </div>
